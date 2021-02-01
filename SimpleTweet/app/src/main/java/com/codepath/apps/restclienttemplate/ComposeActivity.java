@@ -121,7 +121,7 @@ public class ComposeActivity extends AppCompatActivity {
                 }
 
 
-                tvCharacterCounter.setText("Characters: " + displayLength);
+                tvCharacterCounter.setText("" + displayLength);
             }
         });
 
