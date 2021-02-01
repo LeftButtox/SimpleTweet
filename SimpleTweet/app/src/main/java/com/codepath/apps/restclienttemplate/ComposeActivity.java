@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -27,6 +30,7 @@ public class ComposeActivity extends AppCompatActivity {
 
     EditText etCompose;
     Button btnTweet;
+    TextView tvCharacterCounter;
 
     TwitterClient client;
 
@@ -39,6 +43,7 @@ public class ComposeActivity extends AppCompatActivity {
 
         etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
+        tvCharacterCounter = findViewById(R.id.tvCharacterCounter);
 
         // Set click listener on button
         btnTweet.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +85,43 @@ public class ComposeActivity extends AppCompatActivity {
                     }
                 });
 
+            }
+        });
+
+
+        etCompose.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                int tweetLength = etCompose.getText().toString().length();
+
+
+
+
+                int displayLength = MAX_TWEET_LENGTH - tweetLength;
+
+                if (displayLength < 0){
+                    displayLength = 0;
+                }
+
+                if (tweetLength < MAX_TWEET_LENGTH){
+                    btnTweet.setEnabled(true);
+                }
+                else{
+                    btnTweet.setEnabled(false);
+                }
+
+
+                tvCharacterCounter.setText("Characters: " + displayLength);
             }
         });
 
