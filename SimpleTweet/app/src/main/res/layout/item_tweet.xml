@@ -24,6 +24,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:textColor="#FFFFFF"
         tools:text="LeftButtox" />
 
     <TextView
@@ -34,10 +35,10 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivProfileImage"
-        tools:text="This is my tweet!"
         android:autoLink="all"
         android:linksClickable="true"
-        />
+        android:textColor="#FFFFFF"
+        tools:text="This is my tweet!" />
 
     <TextView
         android:id="@+id/tvTimestamp"
@@ -48,5 +49,6 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="77dp"
         android:layout_marginRight="5dp"
+        android:textColor="#FFFFFF"
         tools:text="13m" />
 </RelativeLayout>
